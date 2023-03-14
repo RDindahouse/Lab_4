@@ -1,6 +1,6 @@
 /*
-Дан массив размера N и целые числа K и L (1 ≤ K ≤ L ≤ N). Найти среднее арифметическое
-элементов массива с номерами от K до L включительно.
+Дан массив размера N и целые числа K и L (1 < K ≤ L ≤ N).
+Найти сумму всех элементов массива, кроме элементов с номерами от K до L включительно.
 */
 #include <iostream>
 #include <cmath>
@@ -11,7 +11,6 @@ using namespace std;
 int main()
 {
     int N, sum = 0, K, L;
-    double C, av;
     do
     {
         cout << "String length = ";
@@ -30,14 +29,12 @@ int main()
         cin >> str[i];
     };
     // Среднее арифметическое
-
     for (K; K <= L; K++)
     {
-        C++;
         sum += str[K];
     }
-    av = sum / C;
-    cout << "Average: " << av << endl;
+
+    cout << "Sum: " << sum << endl;
 
     return 0;
 }
