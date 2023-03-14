@@ -31,7 +31,7 @@ int main()
     };
     // Среднее арифметическое
 
-    for (int i = K; i <= L; i++)
+    for (int i = K+1; i < L; i++)
     {
         C++;
         sum += str[i];
