@@ -10,11 +10,16 @@ using namespace std;
 
 int main()
 {
-    int N, isum;
-    cout << "N = ";
-    cin >> N;
+    int N, isum, sum = -100;
+
+    do
+    {
+        cout << "String length = ";
+        cin >> N;
+    } while (N <= 0);
+
     int *str = new int[N];
-    int sum = -100;
+
     for (int i = 0; i < N; i++)
     {
         cout << "str(" << i + 1 << ") - ";
