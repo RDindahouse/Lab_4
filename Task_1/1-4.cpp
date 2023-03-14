@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-    int N, sum = 0, imin, imax;
+    int N, sum = 0;
     do
     {
         cout << "String length = ";
