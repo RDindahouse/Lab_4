@@ -44,5 +44,6 @@ int main()
          << isum + 1 << " - " << str[isum + 1] << endl
          << "sum = " << sum << endl;
 
+    cin.get();
     return 0;
 }

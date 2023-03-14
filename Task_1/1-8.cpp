@@ -66,5 +66,6 @@ int main()
         cout << str[i] << " ";
     }
 
+    cin.get();
     return 0;
 }

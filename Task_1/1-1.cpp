@@ -39,5 +39,6 @@ int main()
     av = sum / C;
     cout << "Average: " << av << endl;
 
+    cin.get();
     return 0;
 }

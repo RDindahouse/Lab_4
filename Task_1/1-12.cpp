@@ -42,5 +42,6 @@ int main()
     }
     cout << "Total: " << m << endl;
 
+    cin.get();
     return 0;
 }

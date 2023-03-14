@@ -36,5 +36,6 @@ int main()
 
     cout << "Sum: " << sum << endl;
 
+    cin.get();
     return 0;
 }

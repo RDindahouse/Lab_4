@@ -61,5 +61,6 @@ int main()
 
     cout << "sum: " << sum;
 
+    cin.get();
     return 0;
 }

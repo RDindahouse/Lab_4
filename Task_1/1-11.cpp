@@ -44,5 +44,6 @@ int main()
     cout << endl
          << "Result: " << str[imin] << endl;
 
+    cin.get();
     return 0;
 }

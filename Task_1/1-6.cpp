@@ -43,5 +43,6 @@ int main()
 
     cout << "Result: " << mult << endl;    
 
+    cin.get();
     return 0;
 }

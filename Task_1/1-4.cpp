@@ -34,5 +34,6 @@ int main()
         if (str[i] % 2 != 0)
             cout << i + 1 << ". " << str[i] << endl;
 
+    cin.get();
     return 0;
 }
