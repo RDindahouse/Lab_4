@@ -1,6 +1,6 @@
 /*
-Дана целочисленная матрица размера M×N. Найти номер первого из ее столбцов, содержащих
-только нечетные числа. Если таких столбцов нет, то вывести 0.
+Дана матрица размера M×N (M и N – четные числа). 
+Поменять местами левую верхнюю и правую нижнюю четверти матрицы.
 */
 #include <iostream>
 #include <iomanip>
@@ -32,6 +32,7 @@ int main()
         }
 
     // Вывод массива
+    cout << "Source: " << endl;
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < M; j++)
@@ -40,25 +41,27 @@ int main()
         cout << endl;
     }
 
-    // Поиск столбца с нечетными числами посредством флага
-    int R = 0;
-    bool odd;
-    for (int i = 0; i < N; i++)
+    // Отражение массива по вертикальной оси симметрии
+    int temp;
+    for (int i = 0; i < N / 2; i++)
     {
-        odd = 1;
-        for (int j = 0; j < M; j++)
+        for (int j = 0; j < M / 2; j++)
         {
-            if (arr[j][i] % 2 == 0)
-                odd = 0;
-        }
-        if (odd)
-        {
-            R = i;
-            break;
+            temp = arr[i][j];
+            arr[i][j] = arr[N - i - 1][M - j - 1];
+            arr[N - i - 1][M - j - 1] = temp;
         }
     }
 
-    cout << "Column that contains only odd numbers - " << R + 1;
+    // Вывод массива
+    cout << "Result:" << endl;
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+            cout << setw(3) << arr[i][j] << "  ";
+
+        cout << endl;
+    }
 
     // Удаление массива
     for (int i = 0; i < N; i++)

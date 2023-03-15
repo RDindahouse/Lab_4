@@ -1,6 +1,6 @@
 /*
-Дана целочисленная матрица размера M×N. Найти номер первого из ее столбцов, содержащих
-только нечетные числа. Если таких столбцов нет, то вывести 0.
+Дана матрица размера M×N.
+Продублировать строку матрицы, содержащую ее максимальный элемент.
 */
 #include <iostream>
 #include <iomanip>
@@ -31,7 +31,19 @@ int main()
             cin >> arr[i][j];
         }
 
+    // Поиск максимального числа
+    int max = arr[0][0];
+    int imax = 0;
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < M; j++)
+            if (arr[i][j] > max)
+            {
+                max = arr[i][j];
+                imax = i;
+            }
+
     // Вывод массива
+    cout << "Source: " << endl;
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < M; j++)
@@ -40,31 +52,28 @@ int main()
         cout << endl;
     }
 
-    // Поиск столбца с нечетными числами посредством флага
-    int R = 0;
-    bool odd;
+    // Вывод массива
+    cout << "Result:" << endl;
     for (int i = 0; i < N; i++)
     {
-        odd = 1;
+        if (i == imax)
+        {
+            for (int j = 0; j < M; j++)
+                cout << setw(3) << arr[i][j] << "  ";
+            cout << endl;
+        }
         for (int j = 0; j < M; j++)
-        {
-            if (arr[j][i] % 2 == 0)
-                odd = 0;
-        }
-        if (odd)
-        {
-            R = i;
-            break;
-        }
+            cout << setw(3) << arr[i][j] << "  ";
+
+        cout << endl;
     }
 
-    cout << "Column that contains only odd numbers - " << R + 1;
-
-    // Удаление массива
+    // Удаление первого массива и уменьшение количества строк массива
     for (int i = 0; i < N; i++)
         delete[] arr[i];
 
     delete[] arr;
+    N--;
 
     cin.get();
     return 0;
