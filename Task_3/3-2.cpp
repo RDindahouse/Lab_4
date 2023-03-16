@@ -4,36 +4,40 @@
  */
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-main()
-{
-    string str, str2;
-    int L, Words = 0;
+int main() {
+    string sentence;
+    cout << "Enter string:";
+    getline(cin, sentence); // Get the sentence as input
 
-    // Ввод строки
-    cout << "Enter string: ";
-    getline(cin >> ws, str);
+    int count = 0;
+    int start = 0;
+    int end = 0;
 
-    // Длина строки
-    L = str.length();
-
-    // Количество слов в строке
-    if (!isspace(str[0]))
-    {
-        Words++;
-        str2 += str[0];
-    }
-    for (int i = 1; i < L; i++)
-    {
-        if (!isspace(str[i]) && isspace(str[i - 1]))
-        { // Цикл смотрит парны ли первая буква слова и пробел за ним
-            Words++;
-            str2 += str[i];
+    // Loop through each character in the sentence
+    for (int i = 0; i < sentence.length(); i++) {
+        // Check if we have a new word
+        if (sentence[i] == ' ' && start < end) {
+            // Check if the first and last letters are the same
+            if (sentence[start] == sentence[end-1]) {
+                count++;
+            }
+            // Reset start and end to look for the next word
+            start = i+1;
+            end = i+1;
+        }
+        else {
+            end++;
         }
     }
 
-    cout << "String: '" << str2 << "'" << endl;
-    cout << "Amount of words in string: " << Words << endl;
+    // Check the last word in the sentence
+    if (start < end && sentence[start] == sentence[end-1]) {
+        count++;
+    }
+
+    cout << "Result: " << count << endl;
+
+    return 0;
 }
