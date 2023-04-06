@@ -42,7 +42,6 @@ int main()
         cout << endl;
     }
 
-    // Вывод количества чисел, которые больше среднего арифметического
     cout << "Result:" << endl;
     int sum = 0, sumtemp;
     int isum = 0;

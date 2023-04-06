@@ -57,7 +57,7 @@ int main()
         for (int j = 0; j < M; j++)
             if (arr[i][j] > average)
                 count++;
-        cout << "Amount of numbers that are greater than average in " << i + 1 << " row: " << count << endl;
+        cout << "average of " << i + 1 << " row: " << average << endl;
         }
     }
 

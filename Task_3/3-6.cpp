@@ -16,7 +16,6 @@ int main() {
     wstring sentence;
     getline(wcin, sentence);
 
-    // Convert the string to lowercase (since Russian alphabet has both uppercase and lowercase letters)
     transform(sentence.begin(), sentence.end(), sentence.begin(), ::towlower);
 
     wstringstream ss(sentence);
