@@ -1,6 +1,6 @@
 /*
 Дан одномерный массив целых чисел. 
-Выбрать из массива все четные числа и упорядочить их по возрастанию.
+Выбрать из массива все числа меньше заданного числа k и упорядочить их по возрастанию.
 */
 #include <iostream>
 
@@ -20,38 +20,42 @@ void insertionSort(int arr[], int n) {
 }
 
 int main() {
-    int n;
+    int n = 0;
+    int k = 0;
     cout << "Enter the size of the array: ";
     cin >> n;
 
     int *arr = new int[n];
 
-    cout << "Enter the elements of the array: " << endl;
+    cout << "Enter the elements of the array:" << endl;
     for (int i = 0; i < n; i++) {
         cout << "Enter element " << i + 1 << ": ";
         cin >> arr[i];
     }
 
-    int *evenArr = new int[n];
-    int evenCount = 0;
+    cout << "Enter a number k: ";
+    cin >> k;
+
+    int *selectedArr = new int[n];
+    int selectedCount = 0;
 
     for (int i = 0; i < n; i++) {
-        if (arr[i] % 2 == 0) {
-            evenArr[evenCount] = arr[i];
-            evenCount++;
+        if (arr[i] < k) {
+            selectedArr[selectedCount] = arr[i];
+            selectedCount++;
         }
     }
 
-    insertionSort(evenArr, evenCount);
+    insertionSort(selectedArr, selectedCount);
 
-    cout << "The sorted even numbers in the array are: " << endl;
-    for (int i = 0; i < evenCount; i++) {
-        cout << evenArr[i] << " ";
+    cout << "The sorted numbers less than " << k << " in the array are: " << endl;
+    for (int i = 0; i < selectedCount; i++) {
+        cout << selectedArr[i] << " ";
     }
     cout << endl;
 
     delete[] arr;
-    delete[] evenArr;
+    delete[] selectedArr;
 
     return 0;
 }

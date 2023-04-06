@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Сортировка методом вставки
 void insertionSort(int arr[], int n) {
     for (int i = 1; i < n; i++) {
         int key = arr[i];
@@ -28,6 +29,7 @@ int main() {
 
     cout << "Enter the elements of the array:" << endl;
     for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
         cin >> arr[i];
     }
 
@@ -41,7 +43,6 @@ int main() {
         }
     }
 
-    // Sorting selected numbers in ascending order using insertion sort
     insertionSort(selectedArr, selectedCount);
 
     cout << "The sorted numbers greater than 10 in the array are: " << endl;
